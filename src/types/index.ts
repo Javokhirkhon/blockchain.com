@@ -1,7 +1,7 @@
 export type CoinsResponse = {
   [key: string]: {
     usd: number
-    usd_24h_change: number
+    usd_24h_change?: number
   }
 }
 
@@ -13,3 +13,7 @@ export type CoinResponse = {
     low_24h: { usd: number }
   }
 }
+
+export type FetchResult<T> =
+  | { success: true; data: T }
+  | { success: false; error: string }

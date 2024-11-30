@@ -1,4 +1,6 @@
-const options = {
+import { FetchResult } from '@/types'
+
+const options: RequestInit = {
   method: 'GET',
   headers: {
     accept: 'application/json',
@@ -9,8 +11,12 @@ const options = {
 export const fetchData = async <T>(
   endpoint: string,
   params: Record<string, string> = {}
-): Promise<T> => {
+): Promise<FetchResult<T>> => {
   const baseUrl = process.env.BASE_URL
+
+  if (!baseUrl) {
+    throw new Error('BASE_URL is not defined')
+  }
 
   const url = new URL(endpoint, baseUrl)
 
@@ -18,8 +24,21 @@ export const fetchData = async <T>(
     url.searchParams.append(key, value)
   })
 
-  const response = await fetch(url.toString(), options)
+  try {
+    const response = await fetch(url.toString(), options)
 
-  const data = await response.json()
-  return data
+    if (!response.ok) {
+      const { error } = await response.json()
+      return {
+        success: false,
+        error: `HTTP Error | ${response.status} - ${error}`,
+      }
+    }
+
+    const data = await response.json()
+
+    return { success: true, data }
+  } catch (error) {
+    throw new Error(`Fetch Error | ${error}`)
+  }
 }

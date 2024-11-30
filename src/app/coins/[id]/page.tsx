@@ -7,9 +7,11 @@ export default async function CoinPage({
   params: Promise<{ id: string }>
 }) {
   const id = (await params).id
-  const coin = await fetchData<CoinResponse>(`coins/${id}`)
+  const response = await fetchData<CoinResponse>(`coins/${id}`)
 
-  console.log('coin', coin)
+  if (!response.success) {
+    return <div>{response.error}</div>
+  }
 
-  return <div>Coin Page</div>
+  return <div>{response.data.name}</div>
 }
