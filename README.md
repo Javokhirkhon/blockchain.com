@@ -1,36 +1,135 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+**Blockchain.com Project**
 
-## Getting Started
+Live version: [https://blockchaincom-weld.vercel.app/](https://blockchaincom-weld.vercel.app/)
 
-First, run the development server:
+**🚀 How to Run the Project Locally**
 
-```bash
+**Clone or Download the Project**
+
+[https://github.com/Javokhirkhon/blockchain.com](https://github.com/Javokhirkhon/blockchain.com)
+
+1.  Clone the repository:
+
+git clone <repository-url>
+
+Or, download the project as a ZIP file and extract it.
+
+**Install Dependencies**
+
+1.  Navigate to the project folder:
+
+cd blockchain.com
+
+2.  Install required dependencies:
+
+npm install
+
+**Development Version**
+
+To run the development server:
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Production Version**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1.  Build the project:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+npm run build
 
-## Learn More
+2.  Start the production server:
 
-To learn more about Next.js, take a look at the following resources:
+npm run start
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**⚠️ Important Note**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+For convenience, the .env file has been pushed to the repository for testing purposes.
 
-## Deploy on Vercel
+However, **in real-world projects, this is not recommended**. Environment variables should:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Be configured on the server.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Be kept private using .env.local, .env.development, or .env.production files locally.
+
+**📖 About the Project**
+
+This project is a simple cryptocurrency dashboard built using:
+
+- **Next.js 15** (latest version)
+
+- **TypeScript** for type safety.
+
+- **Tailwind CSS** for styling and responsiveness.
+
+**Features**
+
+1.  **Home Page**:
+
+- A placeholder for introductory content.
+
+2.  **Coins Listing Page**:
+
+- Fetches and displays a list of cryptocurrencies with their prices and 24-hour change data.
+
+3.  **Coin Details Page**:
+
+- Shows detailed information about a specific cryptocurrency, including:
+
+- Current price.
+
+- 24-hour high and low prices.
+
+**Project Structure**
+
+The project is organized as follows:
+
+- src/app: Contains the main application routes and dynamic pages (/coins and /coins/[id]).
+
+- src/components: For reusable UI components.
+
+- src/lib: Utility functions, such as the fetchData helper.
+
+- src/types: TypeScript definitions for API responses and other types.
+
+**Dynamic Pages**
+
+- /coins: Fetches live cryptocurrency data on each request.
+
+- /coins/[id]: Fetches detailed data for a specific coin based on its ID.
+
+**Error Handling**
+
+- Configuration errors (e.g., missing API keys) throw explicit errors using throw new Error.
+
+- API or HTTP-related errors display user-friendly error messages on the page.
+
+**🛠️ Tech Highlights**
+
+1.  **Built-in Fetch API**:
+
+- Next.js's optimized fetch function is used for data fetching.
+
+- Offers caching and revalidation options out of the box.
+
+2.  **Loading State**:
+
+- Utilizes Next.js's built-in loading.tsx for a generic loading screen.
+
+3.  **Type Safety**:
+
+- Comprehensive TypeScript types ensure type safety and predictability.
+
+4.  **Minimal Dependencies**:
+
+- No additional libraries were installed, as the project doesn't require complex logic.
+
+**💡 Design Decisions**
+
+- **Data Fetching**:
+
+- The /coins and /coins/[id] routes fetch fresh data on every request, ensuring real-time accuracy.
+
+- Revalidation is not used to align with the requirement of displaying the latest data on each request.
+
+- **Environment Variables**:
+
+- Included in the project for testing purposes but should be managed securely in production.
