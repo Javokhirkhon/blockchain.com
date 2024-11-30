@@ -24,17 +24,17 @@ export default async function CoinPage({
         <PriceBlock
           title='Current Price'
           price={market_data.current_price.usd}
-          color='blue'
+          className='text-blue-500'
         />
         <PriceBlock
           title='24h High'
           price={market_data.high_24h.usd}
-          color='green'
+          className='text-green-500'
         />
         <PriceBlock
           title='24h Low'
           price={market_data.low_24h.usd}
-          color='red'
+          className='text-red-500'
         />
       </div>
     </>

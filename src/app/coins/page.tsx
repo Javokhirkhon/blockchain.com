@@ -3,6 +3,8 @@ import { fetchData } from '@/lib/fetchData'
 import { CoinsResponse } from '@/types'
 import Error from '@/components/Error'
 
+export const dynamic = 'force-dynamic'
+
 export default async function CoinsPage() {
   const response = await fetchData<CoinsResponse>('simple/price', {
     ids: 'bitcoin,ethereum,dogecoin,cardano,solana,tether,ripple,aptos',

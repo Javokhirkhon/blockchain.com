@@ -6,6 +6,7 @@ const options: RequestInit = {
     accept: 'application/json',
     'x-cg-demo-api-key': process.env.API_KEY || '',
   },
+  cache: 'no-cache',
 }
 
 export const fetchData = async <T>(
