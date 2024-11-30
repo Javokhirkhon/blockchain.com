@@ -6,7 +6,10 @@ const options = {
   },
 }
 
-export const fetchData = async (endpoint, params = {}) => {
+export const fetchData = async <T>(
+  endpoint: string,
+  params: Record<string, string> = {}
+): Promise<T> => {
   const baseUrl = process.env.BASE_URL
 
   const url = new URL(endpoint, baseUrl)

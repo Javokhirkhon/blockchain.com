@@ -1,4 +1,5 @@
 import { fetchData } from '@/lib/fetchData'
+import { CoinResponse } from '@/types'
 
 export default async function CoinPage({
   params,
@@ -6,7 +7,7 @@ export default async function CoinPage({
   params: Promise<{ id: string }>
 }) {
   const id = (await params).id
-  const coin = await fetchData(`coins/${id}`)
+  const coin = await fetchData<CoinResponse>(`coins/${id}`)
 
   console.log('coin', coin)
 
