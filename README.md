@@ -2,70 +2,66 @@
 
 Live version: https://blockchaincom-weld.vercel.app/
 
----
-
 ## How to Run the Project Locally
 
-Clone or Download the Project
+### Clone or Download the Project
 
 https://github.com/Javokhirkhon/blockchain.com
 
 1. Clone the repository:
 
-git clone <repository-url>
+- git clone <repository-url>
 
-Or, download the project as a ZIP file and extract it.
+- Or, download the project as a ZIP file and extract it.
 
-Install Dependencies
+### Install Dependencies
 
 1. Navigate to the project folder:
 
-cd blockchain.com
+- cd blockchain.com
 
 2. Install required dependencies:
 
-npm install
+- npm install
 
-Development Version
+### Development Version
 
-To run the development server:
+1. To run the development server:
 
-npm run dev
+- npm run dev
 
-Production Version
+### Production Version
 
 1. Build the project:
 
-npm run build
+- npm run build
 
 2. Start the production server:
 
-npm run start
-
----
+- npm run start
 
 ## Important Note
 
 For convenience, the .env file has been pushed to the repository for testing purposes.
 
 However, in real-world projects, this is not recommended. Environment variables should:
-• Be configured on the server.
-• Be kept private using .env.local, .env.development, or .env.production files locally.
 
----
+- Be configured on the server.
+- Be kept private using .env.local, .env.development, or .env.production files locally.
 
 ## About the Project
 
 This project is a simple cryptocurrency dashboard built using:
-• Next.js 15 (latest version)
-• TypeScript for type safety.
-• Tailwind CSS for styling and responsiveness.
 
-Features
+- Next.js 15 (latest version)
+- TypeScript for type safety.
+- Tailwind CSS for styling and responsiveness.
+
+### Features
 
 1. Home Page:
 
-- A placeholder for introductory content or project information.
+- A placeholder for introductory content.
 
 2. Coins Listing Page:
 
@@ -77,27 +73,24 @@ Features
 - Current price.
 - 24-hour high and low prices.
 
----
-
 ## Project Structure
 
 The project is organized as follows:
-• src/app: Contains the main application routes and dynamic pages (/coins and /coins/[id]).
-• src/components: For reusable UI components.
-• src/lib: Utility functions, such as the fetchData helper.
-• src/types: TypeScript definitions for API responses and other types.
+
+- src/app: Contains the main application routes and dynamic pages (/coins and /coins/[id]).
+- src/components: For reusable UI components.
+- src/lib: Utility functions, such as the fetchData helper.
+- src/types: TypeScript definitions for API responses and other types.
 
 Dynamic Pages
 
-• /coins: Fetches live cryptocurrency data on each request.
-• /coins/[id]: Fetches detailed data for a specific coin based on its ID.
+- /coins: Fetches live cryptocurrency data on each request.
+- /coins/[id]: Fetches detailed data for a specific coin based on its ID.
 
 Error Handling
 
-• Configuration errors (e.g., missing API keys) throw explicit errors using throw new Error.
-• API or HTTP-related errors display user-friendly error messages on the page.
-
----
+- Configuration errors (e.g., missing API keys) throw explicit errors using throw new Error.
+- API or HTTP-related errors display user-friendly error messages on the page.
 
 ## Tech Highlights
 
@@ -118,12 +111,13 @@ Error Handling
 
 - No additional libraries were installed, as the project doesn’t require complex logic.
 
----
-
 ## Design Decisions
 
-• Data Fetching:
-• The /coins and /coins/[id] routes fetch fresh data on every request, ensuring real-time accuracy.
-• Revalidation is not used to align with the requirement of displaying the latest data on each request.
-• Environment Variables:
-• Included in the project for testing purposes but should be managed securely in production.
+1. Data Fetching:
+
+- The /coins and /coins/[id] routes fetch fresh data on every request, ensuring real-time accuracy.
+- Revalidation is not used to align with the requirement of displaying the latest data on each request.
+
+2. Environment Variables:
+
+- Included in the project for testing purposes but should be managed securely in production.
