@@ -1,3 +1,5 @@
+import Error from '@/components/Error'
+import PriceBlock from '@/components/PriceBlock'
 import { fetchData } from '@/lib/fetchData'
 import { CoinResponse } from '@/types'
 
@@ -10,8 +12,31 @@ export default async function CoinPage({
   const response = await fetchData<CoinResponse>(`coins/${id}`)
 
   if (!response.success) {
-    return <div>{response.error}</div>
+    return <Error text={response.error} />
   }
 
-  return <div>{response.data.name}</div>
+  const { name, market_data } = response.data
+
+  return (
+    <>
+      <h1 className='text-3xl font-bold mb-8'>{name}</h1>
+      <div className='grid grid-cols-1 sm:grid-cols-3 gap-6'>
+        <PriceBlock
+          title='Current Price'
+          price={market_data.current_price.usd}
+          color='blue'
+        />
+        <PriceBlock
+          title='24h High'
+          price={market_data.high_24h.usd}
+          color='green'
+        />
+        <PriceBlock
+          title='24h Low'
+          price={market_data.low_24h.usd}
+          color='red'
+        />
+      </div>
+    </>
+  )
 }
